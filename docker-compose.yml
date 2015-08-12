@@ -1,0 +1,17 @@
+nginx:
+    build: .
+    ports:
+        - "80:80"
+        - "9200:9200"
+    links:
+        - elasticsearch
+        - kibana
+
+elasticsearch:
+    image: elasticsearch
+
+kibana:
+    image: kibana
+    links:
+        - elasticsearch
+
